@@ -1,0 +1,30 @@
+model_dir: ${datetime:"checkpoints/commsignal2"}
+model:
+  residual_layers: 30
+  residual_channels: 128
+  dilation_cycle_length: 10
+data:
+  root_dir: dataset/commsignal2
+  augmentation: true
+  target_len: 2560
+  batch_size: 128
+  num_workers: 0
+  train_fraction: 0.9
+  mean: 
+    - 1.3608e-05
+    - -1.5107e-06
+  std:
+    - 0.7634
+    - 0.7634
+distributed:
+  distributed: true
+  world_size: 2
+trainer:
+  learning_rate: 1e-4
+  max_steps: 1_000_000
+  log_every: 50
+  save_every: 2000
+  validate_every: 1000
+  infer_every: 500
+  num_infer_samples: 2
+  fast_sampling: false

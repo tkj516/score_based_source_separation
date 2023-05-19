@@ -1,0 +1,24 @@
+model_dir: ${datetime:"checkpoints/qpsk"}
+model:
+  residual_layers: 30
+  residual_channels: 64
+  dilation_cycle_length: 10
+data:
+  root_dir: dataset/qpsk/qpsk
+  augmentation: False
+  target_len: 2560
+  batch_size: 128
+  num_workers: 2
+  train_fraction: 0.9
+distributed:
+  distributed: true
+  world_size: 2
+trainer:
+  learning_rate: 5e-4
+  max_steps: 500_000
+  log_every: 50
+  save_every: 2000
+  validate_every: 1000
+  infer_every: 500
+  num_infer_samples: 2
+  fast_sampling: false

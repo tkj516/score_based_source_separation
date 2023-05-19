@@ -1,0 +1,28 @@
+model_dir: ${datetime:"checkpoints/ofdm_qpsk"}
+model:
+  residual_layers: 30
+  residual_channels: 256
+  dilation_cycle_length: 10
+data:
+  root_dir: dataset/ofdm/qpsk
+  augmentation: true
+  target_len: 2560
+  batch_size: 64
+  num_workers: 2
+  train_fraction: 0.9
+distributed:
+  distributed: true
+  world_size: 2
+trainer:
+  learning_rate: 5e-4
+  max_steps: 1_000_000
+  log_every: 50
+  save_every: 2000
+  validate_every: 1000
+  infer_every: 500
+  num_infer_samples: 1
+  fast_sampling: false
+  infer_shifts:
+    - 80
+    - 8
+    - 10
