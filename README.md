@@ -7,7 +7,10 @@ to work.
 **Note:** Currently the datasets and checkpoints we used in our models are not
 included for space considerations.  Upon publication of the paper, we will
 upload all relevant model parameters and data.  Regardless, one can re-generate 
-the datasets and train the models from scratch using the provided code.
+the datasets and train the models from scratch using the provided code.  Due to
+file size limits we are unable to attach covariance matrices required for LMMSE
+estimation, however all other baselines can be run at the moment (just comment
+out the LMMSE baseline in the notebook under `source_separations/notebooks`).
 
 ### Overall Pipeline with our Source Separation Solution
 
