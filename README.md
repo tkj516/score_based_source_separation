@@ -375,9 +375,12 @@ python runtime_comparison.py --interference_type=<INTERFERENCE_TYPE> --sir_db=<S
  Within the notebook `qpsk_ofdm_qpsk.ipynb` additional baselines such as matched 
  filtering, LMMSE estimation and UNet separation are also run.
 
- The LMMSE baseline can be computed the same way for the OFDM (BPSK) case.  To 
+  The LMMSE baseline can be computed the same way for the OFDM (BPSK) case.  To 
  compute the LMMSE baseline for CommSignal2, replace the `.pkl` file for OFDM 
- with the provide `.pkl` for CommSignal2.  
+ with a `.pkl` for CommSignal2, that will be provided in the future.
+
+ **Note that the `.pkl` files for computing the LMMSE baseline are too large and**
+ **cannot be provided at the moment while the paper is under review.**
 
  ## References
 
