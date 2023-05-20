@@ -7,10 +7,7 @@ to work.
 **Note:** Currently the datasets and checkpoints we used in our models are not
 included for space considerations.  Upon publication of the paper, we will
 upload all relevant model parameters and data.  Regardless, one can re-generate 
-the datasets and train the models from scratch using the provided code.  Due to
-file size limits we are unable to attach covariance matrices required for LMMSE
-estimation, however all other baselines can be run at the moment (just comment
-out the LMMSE baseline in the notebook under `source_separations/notebooks`).
+the datasets and train the models from scratch using the provided code.
 
 ### Overall Pipeline with our Source Separation Solution
 
@@ -37,7 +34,7 @@ We recommend use Anaconda and setting a virtual environment.  This environemnt
 can be created easily using the provided `environment.yaml` file.
 
 ## Defining the Diffusion Model Config
-In order to run an experiment, the parameters for loading the data, defining the
+In order to train a diffusion model, the parameters for loading the data, defining the
 model and setting up the training pipeline are organized into structured configs. 
 Our implementation is based off a publicly available DiffWave implementation [1].
 The configs are managed by a tool called [OmegaConf](https://omegaconf.readthedocs.io/en/2.2_branch/)
@@ -90,7 +87,7 @@ trainer:
 ```
 
 This config defines the experiment by setting the (hyper)parameters that the
-`Config` class in `config.py` requires.  Any parameter not set in YAML file 
+`Config` class in `config.py` requires.  Any parameter not set in the YAML file 
 assumes it's default value.
 
 The YAML config is passed to the main training script to launch the experiment:
@@ -112,7 +109,7 @@ where `::` must be used to demarcate user specified fields.
 
 ## Generating the Datasets
 The dataset is generated with the help of the tools and utilies in the `utils` 
-folder.  At the current moment we are unable to attach our datasets due to file
+folder.  At the moment, we are unable to attach our datasets due to file
 size limits for the supplementary material.  You may instead re-generate datasets
 using the commands provide next.
 
@@ -156,7 +153,7 @@ python prepare_synthetic_datasets.py \
 
 After generating these datasets, copy over the first 200 samples in each dataset
 to create a test set, under `dataset/separation/<signal_name>`.  The first 100
-samples from this test set can be used for hyperparameter validation experiments
+samples from this test set can be used for **hyperparameter validation** experiments
 and the latter 100 samples can be used for inference in the source separation 
 experiments.
 
@@ -251,8 +248,8 @@ All the source separation scripts can be found in the `source_separation` folder
 ### Run a source separation experiment
 
 All source separation experiments can be run using `run_separation.py`.  The 
-source separation dataloader can be found in `utils.py`.  Please update the
-model checkpoints in this file before running the separation experiments. All
+source separation dataloader can be found in `utils.py`.  **Please update the**
+**model checkpoints in this file before running the separation experiments.** All
 separation experiments are run with 100 mixtures per SIR value. An example
 on how to visualize the results is under `notebooks`. This is
 the expected argument template for `run_separation.py`:
@@ -351,7 +348,7 @@ python run_separation.py --method=ModifiedBASIS --interference_type=<INTERFERENC
 python run_separation.py --method=ReverseDiffusion --interference_type=<INTERFERENCE_TYPE> --sir_db=<SIR>
 ```
 
-### Run hyperparameter validation and comparing runtimes
+### Run hyperparameter validation and compare runtimes
 
 The choice of $\omega=\kappa^2$ can be validated by toggling the ratio of 
 $\frac{\omega}{\kappa^2}$.  We experiment with this ratio set to 0.01, 0.1, 1, 10 and 100.
@@ -375,8 +372,12 @@ python runtime_comparison.py --interference_type=<INTERFERENCE_TYPE> --sir_db=<S
  All results will be stored in the `metrics` folder under `source_separation`. 
  With these results saved, the BER and MSE plots (with optional error bars) can
  be visualized by following the example notebook provided under `notebooks`. 
- Within this notebook additional baselines such as matched filtering, LMMSE 
- estimation and UNet separation are also run.
+ Within the notebook `qpsk_ofdm_qpsk.ipynb` additional baselines such as matched 
+ filtering, LMMSE estimation and UNet separation are also run.
+
+ The LMMSE baseline can be computed the same way for the OFDM (BPSK) case.  To 
+ compute the LMMSE baseline for CommSignal2, replace the `.pkl` file for OFDM 
+ with the provide `.pkl` for CommSignal2.  
 
  ## References
 
