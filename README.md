@@ -381,6 +381,14 @@ python runtime_comparison.py --interference_type=<INTERFERENCE_TYPE> --sir_db=<S
 
  **Note that the `.pkl` files for computing the LMMSE baseline are too large and**
  **cannot be provided at the moment while the paper is under review.**
+ 
+ ## Acknowledgements
+ 
+Research was sponsored by the United States Air Force Research Laboratory and the United States Air Force Artificial Intelligence Accelerator and was accomplished under Cooperative Agreement Number FA8750-19-2-1000. The views and conclusions contained in this document are those of the authors and should not be interpreted as representing the official policies, either expressed or implied, of the United States Air Force or the U.S. Government. The U.S. Government is authorized to reproduce and distribute reprints for Government purposes notwithstanding any copyright notation herein.
+
+The authors acknowledge the MIT SuperCloud and Lincoln Laboratory Supercomputing Center for providing HPC resources that have contributed to the research results reported within this paper.
+
+Alejandro Lancho has received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Sklodowska-Curie grant agreement No 101024432. This work is also supported by the National Science Foundation (NSF) under Grant No CCF-2131115.
 
  ## References
 
