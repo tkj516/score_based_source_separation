@@ -4,9 +4,7 @@ Separation with Applications to Digital Communication Signals".  Currently
 the directory is organized into different scripts to enable the entire pipeline 
 to work.
 
-**Note:** Currently the datasets and checkpoints we used in our models are not
-included for space considerations.  Upon publication of the paper, we will
-upload all relevant model parameters and data.  Regardless, one can re-generate 
+**Note:** Checkpoints will be uploaded soon! Regardless, one can re-generate 
 the datasets and train the models from scratch using the provided code.
 
 ### Overall Pipeline with our Source Separation Solution
